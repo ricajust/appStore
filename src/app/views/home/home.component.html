@@ -1,0 +1,17 @@
+<ul class="wrap">
+	@for(product of products; track product.id){
+		<li class="product__container">
+			<div class="product__image">
+				<img [src]="product.image" alt="{{product.description}}">
+			</div>
+			<div class="product__info">
+				<h1>{{product.title}}</h1>
+				<p>{{product.shortDescription}}</p>
+				<label for=""><strong>Price: </strong>US$ {{product.price}}</label> 
+				<label for=""><strong>Rate: </strong>{{product.rating.rate}}</label>
+				<label for=""><strong>Avaliations: </strong>{{product.rating.count}}</label>
+				<button class="btn__detail">+ More Detail</button>
+			</div>
+		</li>
+	}
+</ul>
