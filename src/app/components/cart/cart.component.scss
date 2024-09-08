@@ -1,0 +1,21 @@
+.cart__container{
+	display: flex;
+	flex-direction: column;
+	background: #fff;
+	width: 30%;
+	position: fixed;
+	z-index: 9;
+	right: 0;
+	border-radius: 0 0 0 .75rem;
+	.product{
+		width: 100%;
+		padding: .5rem;
+		font-size: .7rem;
+		display: flex;
+		justify-content: space-around;
+		img{
+			width: 1.5rem;
+			margin-right: 1rem;
+		}
+	}
+}
