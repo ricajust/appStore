@@ -10,7 +10,7 @@
 				<label for=""><strong>Price: </strong>US$ {{product.price}}</label> 
 				<label for=""><strong>Rate: </strong>{{product.rating.rate}}</label>
 				<label for=""><strong>Avaliations: </strong>{{product.rating.count}}</label>
-				<button class="btn__detail">+ More Detail</button>
+				<button class="btn__detail" (click)="showProductDetail(product.id)">+ More Detail</button>
 			</div>
 		</li>
 	}

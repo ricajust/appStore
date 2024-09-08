@@ -16,14 +16,31 @@ export class AppService {
     return this.http.get<any>(`${this.urlRoot}/products`)
       .pipe( 
         map( response => {
-            const newResponse = response.map((product:any) => {
-              return {
-                ...product,
-                shortDescription: product.description.substr(0, 49)
-              }
-            })
-          return {newResponse}
+          return this.addShortDescription(response);
         })
       );
+  }
+
+  //Get one product
+  getProduct(productId: number): Observable<any> {
+    return this.http.get(`${this.urlRoot}/products/${productId}`)
+    .pipe(
+      map( response  => {
+        return this.addShortDescription(response);
+      }
+    ))
+  }
+
+  //Add description in response (array or object)
+  addShortDescription(response: any):any {
+    if (Array.isArray(response)) {
+      return response.map((product:any) => {
+        return {
+          ...product,
+          shortDescription: product.description.substr(0, 49)
+        };
+      });
+    }
+    return {...response, shortDescription: response.description.substr(0, 49)}
   }
 }
